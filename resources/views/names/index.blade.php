@@ -27,8 +27,7 @@
     </table>
     @endif
     
-    {{-- ページネーションのリンク --}}
-    {{ $names->links() }}
+    
     
     {{-- 名前作成ページへのリンク --}}
     {!! link_to_route('names.create', '新規名前の投稿',[],['class' => 'btn btn-primary']) !!}

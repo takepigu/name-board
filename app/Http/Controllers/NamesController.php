@@ -50,6 +50,11 @@ class NamesController extends Controller
     //postでnames/にアクセスされた場合の「新規登録処理」
     public function store(Request $request)
     {
+        //バリデーション
+        $request->validate([
+            'content' => 'required|max:255',
+            ]);
+            
         //名前を作成
         $name = new Name;
         $name->content = $request->content;
@@ -105,6 +110,11 @@ class NamesController extends Controller
      //putまたはpatchでnames/idにアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
+        //バリデーション
+        $request->validate([
+            'content' => 'required|max:255',
+            ]);
+            
         //idの値で名前を検索して取得
         $name = Name::findOrFail($id);
         //名前を更新
