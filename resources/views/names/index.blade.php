@@ -18,6 +18,7 @@
         <tbody>
             @foreach ($names as $name)
             <tr>
+                {{-- 名前詳細ページへのリンク --}}
                 <td>{!! link_to_route('names.show', $name->id, ['name' => $name->id]) !!}</td>
                 <td>{{ $name->title }}</td>
                 <td>{{ $name->content }}</td>
