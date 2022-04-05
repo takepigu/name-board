@@ -22,7 +22,12 @@
                     {!! Form::;label('title','タイトル:') !!}
                     {!! Form::text('title',null,['class' => 'form-control']) !!}
                 </div>
-            
+                
+                <div class="form-group">
+                    {!! Form::;label('self','名前:') !!}
+                    {!! Form::text('self',null,['class' => 'form-control']) !!}
+                </div>
+                
                 <div class="form-group">
                     {!! Form::label('content','名前:') !!}
                     {!! Form::text('content',null,['class' => 'form-control']) !!}

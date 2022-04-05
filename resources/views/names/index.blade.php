@@ -10,8 +10,9 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>タイトル</th>
-                <th>名前</th>
+                <th>性</th>
+                <th>名</th>
+                <th>メールアドレス</th>
             </tr>
         </thead>
         
@@ -21,6 +22,7 @@
                 {{-- 名前詳細ページへのリンク --}}
                 <td>{!! link_to_route('names.show', $name->id, ['name' => $name->id]) !!}</td>
                 <td>{{ $name->title }}</td>
+                <td>{{ $message->self }}</td>
                 <td>{{ $name->content }}</td>
             </tr>
             @endforeach
@@ -28,7 +30,8 @@
     </table>
     @endif
     
-    
+    {{-- ページネーションのリンク --}}
+    {{ $names->links() }}
     
     {{-- 名前作成ページへのリンク --}}
     {!! link_to_route('names.create', '新規名前の投稿',[],['class' => 'btn btn-primary']) !!}

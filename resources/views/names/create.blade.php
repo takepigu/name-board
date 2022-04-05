@@ -19,13 +19,18 @@
             {!! Form::model($name,['route' => 'names.store']) !!}
             
                 <div class="form-group">
-                    {!! Form::label('title','タイトル:') !!}
+                    {!! Form::label('title','性:') !!}
                     {!! Form::text('title',null,['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                   {!! Form::label('content', '名前:') !!}
-                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                   {!! Form::label('self', '名:') !!}
+                    {!! Form::text('self', null, ['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
+                   {!! Form::label('content', 'メールアドレス:') !!}
+                    {!! Form::password('content', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}

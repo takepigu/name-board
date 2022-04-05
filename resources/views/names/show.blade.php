@@ -12,11 +12,15 @@
             <td>{{ $name->id }}</td>
         </tr>
         <tr>
-            <th>タイトル</th>
+            <th>性</th>
             <td>{{ $name->title }}</td>
         </tr>
         <tr>
-            <th>名前</th>
+            <th>名</th>
+            <td>{{ $name->self }}</td>
+        </tr>
+        <tr>
+            <th>メールアドレス</th>
             <td>{{ $name->content }}</td>
         </tr>
     </table>

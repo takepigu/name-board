@@ -16,8 +16,8 @@ class NamesController extends Controller
     //getでnames/にアクセスされた場合の「一覧表示処理」
     public function index()
     {
-        //名前一覧を取得
-        $names = Name::all();
+        //名前一覧をidの降順で取得
+        $names = Name::orderBy('id','desc')->paginate(25);
         
         //名前一覧ビューでそれを表示
         return view('names.index',[
@@ -52,6 +52,7 @@ class NamesController extends Controller
     {
         //バリデーション
         $request->validate([
+            'self' => 'required|max:255',
             'title' => 'required|max:255',
             'content' => 'required|max:255',
             ]);
@@ -59,6 +60,7 @@ class NamesController extends Controller
         //名前を作成
         $name = new Name;
         $name->title = $request->title;
+        $name->self = $request->self;
         $name->content = $request->content;
         $name->save();
         
@@ -115,6 +117,7 @@ class NamesController extends Controller
         //バリデーション
         $request->validate([
             'title' => 'required|max:255',
+            'self' => 'required|max:255',
             'content' => 'required|max:255',
             ]);
             
@@ -122,6 +125,7 @@ class NamesController extends Controller
         $name = Name::findOrFail($id);
         //名前を更新
         $name->title = $request->title;
+        $name->self = $request->self;
         $name->content = $request->content;
         $name->save();
         
