@@ -17,20 +17,20 @@
     <div class="row">
         <div class="col-6">
             {!! Form::model($name,['route' => 'names.store']) !!}
-            
-                <div class="form-group">
-                    {!! Form::label('title','性:') !!}
-                    {!! Form::text('title',null,['class' => 'form-control']) !!}
-                </div>
                 
                 <div class="form-group">
-                   {!! Form::label('self', '名:') !!}
+                   {!! Form::label('self', '姓:') !!}
                     {!! Form::text('self', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
+                    {!! Form::label('title','名:') !!}
+                    {!! Form::text('title',null,['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
                    {!! Form::label('content', 'メールアドレス:') !!}
-                    {!! Form::password('content', null, ['class' => 'form-control']) !!}
+                    {!! Form::email('content', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}

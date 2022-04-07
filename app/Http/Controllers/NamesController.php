@@ -54,13 +54,13 @@ class NamesController extends Controller
         $request->validate([
             'self' => 'required|max:255',
             'title' => 'required|max:255',
-            'content' => 'required|max:255',
+            'content' => 'email:rfc,dns',
             ]);
             
         //名前を作成
         $name = new Name;
-        $name->title = $request->title;
         $name->self = $request->self;
+        $name->title = $request->title;
         $name->content = $request->content;
         $name->save();
         
@@ -78,7 +78,7 @@ class NamesController extends Controller
     public function show($id)
     {
         //idの値で名前を検索して取得
-        $name = Names::findOrFail($id);
+        $name = Name::findOrFail($id);
         
         //名前詳細ビューでそれを表示
         return view('names.show',[
@@ -116,16 +116,16 @@ class NamesController extends Controller
     {
         //バリデーション
         $request->validate([
-            'title' => 'required|max:255',
             'self' => 'required|max:255',
-            'content' => 'required|max:255',
+            'title' => 'required|max:255',
+            'content' => 'email:rfc,dns',
             ]);
             
         //idの値で名前を検索して取得
         $name = Name::findOrFail($id);
         //名前を更新
-        $name->title = $request->title;
         $name->self = $request->self;
+        $name->title = $request->title;
         $name->content = $request->content;
         $name->save();
         

@@ -17,19 +17,19 @@
     <div class="row">
         <div class="col-6">
             {!! Form::model($name, ['route' => ['names.update',$name->id],'method' => 'put']) !!}
-            
-                <div class="form-group">
-                    {!! Form::;label('title','タイトル:') !!}
-                    {!! Form::text('title',null,['class' => 'form-control']) !!}
-                </div>
                 
                 <div class="form-group">
-                    {!! Form::;label('self','名前:') !!}
+                    {!! Form::label('self','姓:') !!}
                     {!! Form::text('self',null,['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('content','名前:') !!}
+                    {!! Form::label('title','名:') !!}
+                    {!! Form::text('title',null,['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
+                    {!! Form::label('content','メールアドレス:') !!}
                     {!! Form::text('content',null,['class' => 'form-control']) !!}
                 </div> 
                 

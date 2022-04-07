@@ -12,12 +12,12 @@
             <td>{{ $name->id }}</td>
         </tr>
         <tr>
-            <th>性</th>
-            <td>{{ $name->title }}</td>
+            <th>姓</th>
+            <td>{{ $name->self }}</td>
         </tr>
         <tr>
             <th>名</th>
-            <td>{{ $name->self }}</td>
+            <td>{{ $name->title }}</td>
         </tr>
         <tr>
             <th>メールアドレス</th>
@@ -26,10 +26,10 @@
     </table>
     
     {{-- 名前編集ページへのリンク --}}
-    {!! link_to_route('names.edit', 'この名前を編集', ['name' =>id], ['class' => 'btn btn-light']) !!}
+    {!! link_to_route('names.edit', 'この名前を編集', ['name' => $name->id], ['class' => 'btn btn-light']) !!}
     
     {{-- 名前削除フォーム --}}
-    {!! Form::medel($name,['route' => ['names.destroy', $name->id], 'method' => 'delete']) !!}
+    {!! Form::model($name,['route' => ['names.destroy', $name->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除',['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
     
